@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   get "/" => "home#top"
   get "about"=> "home#about"
+
+  resources :account_activations, only: [:edit]
 end
