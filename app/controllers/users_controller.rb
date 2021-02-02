@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user,{only: [:index,:show,:edit, :update]}
-	before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
-	before_action :ensure_correct_user, {only: [:edit, :update]}
+  before_action :logged_in_user, only: [:index, :edit, :update]
+	before_action :correct_user,   only: [:edit, :update]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -18,20 +17,20 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      flash[:notice]="ユーザー登録が完了しました"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(params[:id])
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(params[:id])
   
     if @user.update(user_params)
       flash[:notice] = "ユーザー情報を編集しました"
@@ -41,28 +40,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def login_form
-  end
-
-  def login
-    @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      flash[:notice] = "ログインしました"
-      redirect_to("/posts/index")
-    else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
-      @email = params[:email]
-      @password = params[:password]
-      render("users/login_form")
-    end
-  end
-
-  def logout
-    session[:user_id]=nil
-    flash[:notice]="ログアウトしました"
-    redirect_to("/login")
-  end
 
   def likes
     @user = User.find_by(id: params[:id])
@@ -81,5 +58,18 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :profile, :password_confirmation, :image)
+    end
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end

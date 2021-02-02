@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
-  get "login" => "users#login_form"
-  post "login" => "users#login"
-  post "logout" => "users#logout"
-  post "users/:id/update" => "users#update"
+  
   get "signup" => "users#new"
   get "users/:id/likes" => "users#likes"
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+
+
 
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
@@ -21,4 +24,5 @@ Rails.application.routes.draw do
   get "about"=> "home#about"
   resources :users
   resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 end
