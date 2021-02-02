@@ -1,32 +1,35 @@
 <div class="main user-show">
   <div class="container">
     <div class="user">
-      <img src="<%= "/user_images/#{@user.image_name}" %>">
-      <h2><%= @user.name %></h2>
-      <p><%= @user.email %></p>
-      <% if @user.id == @current_user.id %>
-        <%= link_to("編集", "/users/#{@user.id}/edit") %>
-      <% end %>
-    </div>
-    
-    <!-- 指定されたコードを貼り付けてください -->
-    <ul class="user-tabs">
-      <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
-      <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
-    </ul>
-    
-    <% @user.posts.each do |post| %>
-      <div class="posts-index-item">
-        <div class="post-left">
-          <img src="<%= "/user_images/#{post.user.image_name}" %>">
-        </div>
-        <div class="post-right">
-          <div class="post-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
-          </div>
-          <%= link_to(post.content, "/posts/#{post.id}") %>
+      <div class="row">
+        <aside class="col-md-4">
+          <section class="user_info">
+            <h1>
+              <%= image_tag @user.image %>
+              <p><%= @user.name %></p>
+            </h1>
+          </section>
+        </aside>
+          <%= link_to "Settings", edit_user_path(@current_user) %>
+      </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <p class='text-center'>プロフィール</p>
+          <% unless @user.profile.nil? %>
+            <%= @user.profile.gsub(/\r\n|\r|\n/, "<br />").html_safe %>
+          <% else %>
+            <% if current_user.id == @user.id %>
+              <p>プロフィールを入力しませんか？</p>
+            <% else %>
+              <p>プロフィールは未入力です</p>
+            <% end %>
+          <% end %>
         </div>
       </div>
-    <% end %>
+      <ul class="user-tabs">
+        <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
+        <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+      </ul>
+    </div>
   </div>
 </div>

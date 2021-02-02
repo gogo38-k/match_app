@@ -3,23 +3,34 @@
     <div class="form-heading">アカウント編集</div>
     <div class="form users-form">
       <div class="form-body">
-        <% @user.errors.full_messages.each do |message| %>
-          <div class="form-error">
-            <%= message %>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <%= form_with(model: @user, local: true) do |f| %>
+              <%= render 'shared/error_messages' %>
+
+              <%= f.label :image %>
+              <%= f.file_field :image %>
+
+              <%= f.label :name %>
+              <%= f.text_field :name, class: 'form-control' %>
+
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control' %>
+
+              <%= f.label :profile %>
+              <%= f.text_area :profile, class: 'form-control' %>
+
+              <%= f.label :password %>
+              <%= f.password_field :password, class: 'form-control' %>
+
+              <%= f.label :password_confirmation, "Confirmation" %>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+                
+              <%= f.submit "Save changes", class: "btn btn-primary" %>
+            <% end %>
+
           </div>
-        <% end %>
-      
-        <!-- form_tagメソッドに「multipart: true」を追加してください -->
-        <%= form_tag("/users/#{@user.id}/update",{multipart: true}) do %>
-          <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>">
-          <p>画像</p>
-          <!-- 画像用のフォームを追加してください -->
-          <input name="image" type="file">
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>">
-          <input type="submit" value="保存">
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
