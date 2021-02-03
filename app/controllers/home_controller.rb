@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
-	before_action :forbid_login_user, {only: [:top]}
+
 
   def top
+	if logged_in?
+	   @post  = current_user.posts.build
+	end
   end
 
   def about

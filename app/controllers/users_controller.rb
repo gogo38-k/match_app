@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def new
@@ -46,12 +47,6 @@ class UsersController < ApplicationController
     @likes = Like.where(user_id: @user.id)
   end
 
-  def ensure_correct_user
-    if @current_user.id != params[:id].to_i
-      flash[:notice]="権限がありません"
-      redirect_to("/posts/index")
-    end
-  end
 
   private
 
@@ -60,16 +55,12 @@ class UsersController < ApplicationController
                                    :profile, :password_confirmation, :image)
     end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
-
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

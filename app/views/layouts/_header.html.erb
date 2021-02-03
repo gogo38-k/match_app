@@ -1,13 +1,13 @@
     <header>
       <div class="header-logo">
-        <% if @current_user %>
+        <% if current_user %>
           <%= link_to("TweetApp", "/posts/index") %>
         <% else %>
           <%= link_to("TweetApp", root_path) %>
         <% end %>
       </div>
       <ul class="header-menus">
-        <% if @current_user %>
+       <% if current_user %>
           <li>
             <%= link_to "プロフィール", current_user %>
           </li>
@@ -25,10 +25,10 @@
           </li>
         <% else %>
           <li>
-            <%= link_to("TweetAppとは", "/about") %>
+            <%= link_to "TweetAppとは", about_path  %>
           </li>
           <li>
-            <%= link_to("新規登録", "/signup") %>
+            <%= link_to "新規登録", signup_path %>
           </li>
           <li>
             <%= link_to "ログイン", login_path %>
