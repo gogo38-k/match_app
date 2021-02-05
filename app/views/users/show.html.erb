@@ -9,23 +9,28 @@
             <% end %>
             <h1><%= @user.name %></h1>
           </section>
+          <section class="stats">
+            <%= render 'shared/stats' %>
+          </section>
         </aside>
+        <% if current_user.id == @user.id %>
           <%= link_to "Settings", edit_user_path(current_user) %>
-      </div>
-      <div class="row">
-        <div class="col-sm-5">
-          <p class='text-center'>プロフィール</p>
-          <% unless @user.profile.nil? %>
-            <%= @user.profile.gsub(/\r\n|\r|\n/, "<br />").html_safe %>
-          <% else %>
-            <% if current_user.id == @user.id %>
-              <p>プロフィールを入力しませんか？</p>
-            <% else %>
-              <p>プロフィールは未入力です</p>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+        <% end %>
+          <div class="row">
+            <div class="col-sm-5">
+              <p class='text-center'>プロフィール</p>
+              <% unless @user.profile.nil? %>
+                <%= @user.profile.gsub(/\r\n|\r|\n/, "<br />").html_safe %>
+              <% else %>
+                <% if current_user.id == @user.id %>
+                  <p>プロフィールを入力しませんか？</p>
+                <% else %>
+                  <p>プロフィールは未入力です</p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+      <%= render 'follow_form' if logged_in? %>
       <ul class="user-tabs">
         <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
         <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>

@@ -17,7 +17,10 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = current_user.posts.build(post_params)
+    @post = Post.new(
+      content: params[:content],
+      user_id: @current_user.id
+    )
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
@@ -48,18 +51,14 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
-  def ensure_correct_user
-    @post = Post.find_by(id: params[:id])
-    if @post.user_id != @current_user.id
-      flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
-    end
-  end
+  
 
   private
 
-    def post_params
-      params.require(:post).permit(:content)
+
+    def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      redirect_to root_url if @post.nil?
     end
   
 end
