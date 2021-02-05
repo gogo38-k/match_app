@@ -1,37 +1,37 @@
     <header>
       <div class="header-logo">
         <% if current_user %>
-          <%= link_to("TweetApp", "/posts/index") %>
+          <%= link_to("Match-App", "/posts/index") %>
         <% else %>
-          <%= link_to("TweetApp", root_path) %>
+          <%= link_to("Match-App", root_path) %>
         <% end %>
       </div>
       <ul class="header-menus">
        <% if current_user %>
           <li>
-            <%= link_to "プロフィール", current_user %>
+            <%= link_to "Profile", current_user %>
           </li>
           <li>
-            <%= link_to("投稿一覧", "/posts/index") %>
+            <%= link_to "Allposts", "/posts/index" %>
           </li>
           <li>
-            <%= link_to("新規投稿", "/posts/new") %>
+            <%= link_to("Newpost", "/posts/new") %>
           </li>
           <li>
-            <%= link_to "ユーザー一覧", users_path %>
+            <%= link_to "Allusers", users_path %>
           </li>
           <li>
-            <%= link_to "ログアウト", logout_path, method: :delete %>
+            <%= link_to "Logout", logout_path, method: :delete %>
           </li>
         <% else %>
           <li>
-            <%= link_to "TweetAppとは", about_path  %>
+            <%= link_to "About", about_path  %>
           </li>
           <li>
-            <%= link_to "新規登録", signup_path %>
+            <%= link_to "Signup", signup_path %>
           </li>
           <li>
-            <%= link_to "ログイン", login_path %>
+            <%= link_to "Login", login_path %>
           </li>
         <% end %>
       </ul>

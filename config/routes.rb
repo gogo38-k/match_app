@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-
-
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   get "posts/:id" =>"posts#show"
@@ -19,6 +17,8 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
+
+  
 
   root "home#top"
   get "about"=> "home#about"
@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :posts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
 end

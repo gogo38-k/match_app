@@ -1,9 +1,6 @@
-<div class="main user-show">
-  <div class="container">
-    <div class="user">
-      <div class="row">
-        <aside class="col-md-4">
-          <section class="user_info">
+      <div class="main user-show">
+        <div class="container">
+          <section class="user">
             <% if @user.image.attached? %>
               <%= image_tag @user.image %>
             <% end %>
@@ -12,13 +9,12 @@
           <section class="stats">
             <%= render 'shared/stats' %>
           </section>
-        </aside>
-        <% if current_user.id == @user.id %>
-          <%= link_to "Settings", edit_user_path(current_user) %>
-        <% end %>
+          <% if current_user.id == @user.id %>
+            <%= link_to "Settings", edit_user_path(current_user) %>
+          <% end %>
           <div class="row">
             <div class="col-sm-5">
-              <p class='text-center'>プロフィール</p>
+              <p class='text-center'>-profile-</p>
               <% unless @user.profile.nil? %>
                 <%= @user.profile.gsub(/\r\n|\r|\n/, "<br />").html_safe %>
               <% else %>
@@ -30,11 +26,26 @@
               <% end %>
             </div>
           </div>
-      <%= render 'follow_form' if logged_in? %>
-      <ul class="user-tabs">
-        <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
-        <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
-      </ul>
-    </div>
-  </div>
-</div>
+          <%= render 'follow_form' if logged_in? %>
+          <ul class="user-tabs">
+            <li class="active"><%= link_to("Post", "/users/#{@user.id}") %></li>
+            <li><%= link_to("Good", "/users/#{@user.id}/likes") %></li>
+          </ul>
+
+          <% @user.posts.each do |post| %>
+            <div class="posts-index-item">
+              <div class="post-left">
+                <% if @user.image.attached? %>
+                  <%= image_tag @user.image %>
+                <% end %>
+              </div>
+              <div class="post-right">
+                <div class="post-user-name">
+                  <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+                </div>
+                <%= link_to(post.content, "/posts/#{post.id}") %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>

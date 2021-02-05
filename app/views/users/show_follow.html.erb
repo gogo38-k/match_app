@@ -16,6 +16,7 @@
                   <% if user.image.attached? %>
                     <%= image_tag user.image %>
                   <% end %>
+                  <p><%= link_to user.name, user %></p>
                 <% end %>
               </div>
             <% end %>
