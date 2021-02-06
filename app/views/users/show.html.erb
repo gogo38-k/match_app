@@ -5,6 +5,8 @@
               <%= image_tag @user.image %>
             <% end %>
             <h1><%= @user.name %></h1>
+            <p>Favorite Team</p>
+            <h1><%= @user.team %></h1>
           </section>
           <section class="stats">
             <%= render 'shared/stats' %>
