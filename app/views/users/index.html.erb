@@ -1,6 +1,14 @@
 <div class="main users-index">
   <div class="container">
     <h1 class="users-heading">All users</h1>
+    <p>user search</p>
+    <%= form_with(url: users_path, method: :get, local: true) do |f| %>
+      <%= text_field_tag :name , params[:name],placeholder: "ユーザー名" %>
+    <% end %>
+    <%= form_with(url: users_path, method: :get, local: true) do |f| %>
+      <%= select_tag "team", options_for_select([["Giants"], ["Tigers"]]) %>
+    <% end %>
+    <%= submit_tag @submits_searched %>
     <%= will_paginate %>
     <% @users.each do |user| %>
       <div class="users-index-item">

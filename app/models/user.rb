@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	
 	has_secure_password
 	has_many :posts, dependent: :destroy
 	has_many :active_relationships, class_name:  "Relationship",
@@ -72,6 +73,8 @@ class User < ApplicationRecord
 	def following?(other_user)
 	  following.include?(other_user)
 	end
+
+	
 
 
 	 private

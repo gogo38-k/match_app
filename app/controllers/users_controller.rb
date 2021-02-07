@@ -6,6 +6,12 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
+  def search 
+    team_ids = Submit.where("team = ?", params[:team]) .pluck(:id)
+    name_ids = Submit.where("name LIKE (?)", "#{params[:name]}").pluck(:id)
+    @submit_searched = Submit.where("submit_id IN (?) or submit_id IN (?)", name_ids, team_ids)
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     @posts = @user.posts.paginate(page: params[:page])
