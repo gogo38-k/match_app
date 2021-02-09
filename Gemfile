@@ -6,7 +6,7 @@ ruby '2.7.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -32,9 +32,10 @@ gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
 # Force all access to the app over SSL, use Strict-Transport-Security,
   # and use secure cookies.
-  
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3', '1.4.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -56,5 +57,8 @@ group :test do
   gem 'factory_bot_rails'
 end
 
+group :production do
+  gem 'pg', '1.1.4'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
