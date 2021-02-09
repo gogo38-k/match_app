@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bcrypt'
 gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
+# Force all access to the app over SSL, use Strict-Transport-Security,
+  # and use secure cookies.
+  
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

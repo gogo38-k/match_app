@@ -3,14 +3,10 @@ class UsersController < ApplicationController
 	before_action :correct_user,   only: [:edit, :update]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).search(params[:search])
   end
 
-  def search 
-    team_ids = Submit.where("team = ?", params[:team]) .pluck(:id)
-    name_ids = Submit.where("name LIKE (?)", "#{params[:name]}").pluck(:id)
-    @submit_searched = Submit.where("submit_id IN (?) or submit_id IN (?)", name_ids, team_ids)
-  end
+  
 
   def show
     @user = User.find_by(id: params[:id])
