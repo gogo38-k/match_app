@@ -6,14 +6,16 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
+    "bower": "^1.8.12",
     "request": "^2.88.2",
+    "sails": "^1.4.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
-  "engines": {
-    "node": "10.3.0"
-  },
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
   }
 }
+"scripts": {
+    "start": "npm run start"
+  }
