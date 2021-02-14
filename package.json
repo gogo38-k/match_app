@@ -7,6 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "bower": "^1.8.12",
+    "heroku": "^7.47.12",
     "request": "^2.88.2",
     "sails": "^1.4.0",
     "turbolinks": "^5.2.0"
@@ -14,8 +15,9 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/gogo38-k/match_app.git",
+  "author": "<hopu38@yahoo.co.jp>",
+  "license": "MIT"
 }
-"scripts": {
-    "start": "npm run start"
-  }
