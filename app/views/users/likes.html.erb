@@ -31,7 +31,7 @@
     <%= render 'follow_form' if logged_in? %>
     <ul class="user-tabs">
       <li><%= link_to("Post", "/users/#{@user.id}") %></li>
-      <li><%= link_to("Good", "/users/#{@user.id}/likes") %></li>
+      <li class="active"><%= link_to("Good", "/users/#{@user.id}/likes") %></li>
     </ul>
     
     <% @likes.each do |like| %>

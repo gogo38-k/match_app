@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy" => "likes#destroy"
 
   
-  get "signup" => "users#new"
+  get    '/signup',  to: 'users#new'
   get "users/:id/likes" => "users#likes"
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

@@ -1,21 +1,19 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Match-Appはプロ野球のファン同士が交流を深めるサービスです。
 
-Things you may want to cover:
+# 主な機能
 
-* Ruby version
+* ユーザー登録機能（画像設定あり）
 
-* System dependencies
+* フォロー機能
 
-* Configuration
+* 投稿機能
 
-* Database creation
+* いいね機能
 
-* Database initialization
+* お気に入り球団設定機能
 
-* How to run the test suite
+* ユーザー検索機能
 
 * Services (job queues, cache servers, search engines, etc.)
 

@@ -7,6 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "bower": "^1.8.12",
+    "codecov": "^3.8.1",
     "heroku": "^7.47.12",
     "request": "^2.88.2",
     "sails": "^1.4.0",
