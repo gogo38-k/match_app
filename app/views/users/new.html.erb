@@ -3,55 +3,56 @@
     <div class="form-heading">Signup</div>
     <div class="form users-form">
       <div class="form-body">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <%= form_with(model: @user, local: true) do |f| %>
-               <%= render 'shared/error_messages', object: f.object %>
-               <p>
-                <%= f.label :name %>
-                <%= f.text_field :name, class: 'form-control' %>
-              </p>
-              <p>
-                <%= f.label :email %>
-                <%= f.email_field :email, class: 'form-control' %>
-              </p>
-              
-              <%= f.radio_button :team, :"Giants" %>
-              <%= f.label :team, "Giants", value: :"Giants", class: 'form-control' %>
-              <%= f.radio_button :team, :"Tigers" %>
-              <%= f.label :team, "Tigers", value: :"Tigers", class: 'form-control' %>
-              <%= f.radio_button :team, :"Dragons" %>
-              <%= f.label :team, "Dragons", value: :"Dragons", class: 'form-control' %>
-              <%= f.radio_button :team, :"BAYSTARS" %>
-              <%= f.label :team, "BAYSTARS", value: :"BAYSTARS", class: 'form-control' %>
-              <%= f.radio_button :team, :"Carp" %>
-              <%= f.label :team, "Carp", value: :"Carp", class: 'form-control' %>
-              <%= f.radio_button :team, :"Swallows" %>
-              <%= f.label :team, "Swallows", value: :"Swallows", class: 'form-control' %>
-              <%= f.radio_button :team, :"Hawks" %>
-              <%= f.label :team, "Hawks", value: :"Hawks", class: 'form-control' %>
-              <%= f.radio_button :team, :"Marines" %>
-              <%= f.label :team, "Marines", value: :"Marines", class: 'form-control' %>
-              <%= f.radio_button :team, :"Lions" %>
-              <%= f.label :team, "Lions", value: :"Lions", class: 'form-control' %>
-              <%= f.radio_button :team, :"Eagles" %>
-              <%= f.label :team, "Eagles", value: :"Eagles", class: 'form-control' %>
-              <%= f.radio_button :team, :"Fighters" %>
-              <%= f.label :team, "Fighters", value: :"Fighters", class: 'form-control' %>
-              <%= f.radio_button :team, :"Buffaloes" %>
-              <%= f.label :team, "Buffaloes", value: :"Buffaloes", class: 'form-control' %>
-              <p>
-                <%= f.label :password %>
-                <%= f.password_field :password, class: 'form-control' %>
-              </p>
-              <p>
-                <%= f.label :password_confirmation, "Confirmation" %>
-                <%= f.password_field :password_confirmation, class: 'form-control' %>
-              </p>
-                <%= f.submit :Signup, class: "btn btn-primary" %>
-            <% end %>
-          </div>
+        <%= form_with(model: @user, local: true) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+               
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+                         
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+          
+        <p>Favorite Team</p>
+        <div class="team-control">
+          <%= f.radio_button :team, :"Giants" %>
+          <%= f.label :team, "Giants", value: :"Giants" %>
+          <%= f.radio_button :team, :"Tigers" %>
+          <%= f.label :team, "Tigers", value: :"Tigers" %>
+          <%= f.radio_button :team, :"Dragons" %>
+          <%= f.label :team, "Dragons", value: :"Dragons" %>
+          <%= f.radio_button :team, :"BAYSTARS" %>
+          <%= f.label :team, "BAYSTARS", value: :"BAYSTARS" %>
+          <%= f.radio_button :team, :"Carp" %>
+          <%= f.label :team, "Carp", value: :"Carp" %>
+          <%= f.radio_button :team, :"Swallows" %>
+          <%= f.label :team, "Swallows", value: :"Swallows" %>
         </div>
+                    
+        <div class="team-control">
+          <%= f.radio_button :team, :"Hawks" %>
+          <%= f.label :team, "Hawks", value: :"Hawks" %>
+          <%= f.radio_button :team, :"Marines" %>
+          <%= f.label :team, "Marines", value: :"Marines" %>
+          <%= f.radio_button :team, :"Lions" %>
+          <%= f.label :team, "Lions", value: :"Lions" %>
+          <%= f.radio_button :team, :"Eagles" %>
+          <%= f.label :team, "Eagles", value: :"Eagles" %>
+          <%= f.radio_button :team, :"Fighters" %>
+          <%= f.label :team, "Fighters", value: :"Fighters" %>
+          <%= f.radio_button :team, :"Buffaloes" %>
+          <%= f.label :team, "Buffaloes", value: :"Buffaloes" %>
+        </div><br>
+              
+        <div class="profile-control">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
+
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation %>
+              
+          <%= f.submit :Signup, class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
