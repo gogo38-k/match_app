@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bcrypt'
 gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'devise'
 # Force all access to the app over SSL, use Strict-Transport-Security,
   # and use secure cookies.
 

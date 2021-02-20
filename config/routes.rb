@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'rooms/index'
+  get 'rooms/show'
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -32,4 +34,6 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :posts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  get 'message/:id' => 'messages#show', as: 'message'
+  resources :messages, only: [:create]
 end
