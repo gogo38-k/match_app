@@ -13,8 +13,6 @@ class UsersController < ApplicationController
     @posts = @user.posts.paginate(page: params[:page])
   end
 
-  end
-
   def new
   	@user = User.new
   end

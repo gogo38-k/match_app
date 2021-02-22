@@ -1,0 +1,50 @@
+<div class="main user-show">
+  <div class="container">
+    
+      <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
+    
+    <div class="user-left">
+      <% if @user.image.attached? %>
+        <%= image_tag @user.image %>
+      <% end %>
+    </div>
+    <div class="users-index-item">
+      <div class="message table">
+        <table>
+          <thead>
+            <tr>
+              <th class="message-left"><%= current_user.name %></th>
+              <th class="message-right"><%= @user.name %></th>
+            </tr>
+          </thead>
+          <% @messages.each do |message| %>
+            <% if message.user_id == current_user.id %>
+              <tbody>
+                <tr>
+                  <th>
+                    <p class="message-left"><%= message.body %></p>
+                  </th>
+                  <th></th>
+                </tr>
+              </tbody>
+            <% else %>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th>
+                    <p class="message-right"><%= message.body %></p>
+                  </th>
+                </tr>
+              </tbody>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+        <%= form_with model: @message do |f| %>
+            <%= f.text_field :body %>
+            <%= f.hidden_field :room_id %>
+        <% end %>
+      
+    </div>
+  </div>
+</div>
