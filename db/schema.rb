@@ -93,13 +93,10 @@ ActiveRecord::Schema.define(version: 2021_02_19_214940) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image_name"
     t.string "password_digest"
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
     t.string "profile"
     t.string "remember_digest"
     t.string "team"
