@@ -1,9 +1,9 @@
     <header>
       <div class="header-logo">
         <% if current_user %>
-          <%= link_to("Match-App", "/posts/index") %>
+          <%= link_to("球っちんぐ", "/posts/index") %>
         <% else %>
-          <%= link_to("Match-App", root_path) %>
+          <%= link_to("球っちんぐ", root_path) %>
         <% end %>
       </div>
       <ul class="header-menus">
@@ -24,9 +24,6 @@
             <%= link_to "Logout", logout_path, method: :delete %>
           </li>
         <% else %>
-          <li>
-            <%= link_to "About", about_path  %>
-          </li>
           <li>
             <%= link_to "Signup", signup_path %>
           </li>

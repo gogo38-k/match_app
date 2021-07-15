@@ -1,10 +1,13 @@
-<div class="main users-new">
+<div class="main users-sign">
   <div class="container">
     <div class="form-heading">Signup</div>
     <div class="form users-form">
       <div class="form-body">
         <%= form_with(model: @user, local: true) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
+
+          <%= f.label :image %>
+          <%= f.file_field :image %>
                
           <%= f.label :name %>
           <%= f.text_field :name %>
@@ -44,9 +47,13 @@
         </div><br>
               
         <div class="profile-control">
+          <%= f.label :profile %>
+          <%= f.text_area :profile %>
+        </div>
+        
           <%= f.label :password %>
           <%= f.password_field :password %>
-        </div>
+    
 
           <%= f.label :password_confirmation, "Confirmation" %>
           <%= f.password_field :password_confirmation %>

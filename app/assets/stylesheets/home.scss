@@ -1,4 +1,4 @@
-/* reset ================================ */
+/* reset　*/
 * {
   box-sizing: border-box;
 }
@@ -35,7 +35,7 @@ form input[type="submit"] {
   cursor: pointer;
 }
 
-/* 共通レイアウト ================================ */
+/* 共通レイアウト */
 body {
   color: #2d3133;
   background-color: #3ecdc6;
@@ -60,7 +60,8 @@ body {
   clear: both;
 }
 
-/* ヘッダー ================================ */
+
+/* ヘッダー  */
 header {
   height: 64px;
   position: absolute;
@@ -114,9 +115,9 @@ header {
   font-size: 13px;
 }
 
-/* top ================================ */
+/* top  */
 .top-main {
-  padding: 200px 0 100px;
+  padding: 65px 0;
   text-align: center;
   position: absolute;
   top: 0;
@@ -124,15 +125,18 @@ header {
   height: auto;
   min-height: 100%;
   color: white;
-  background-color: #3ecdc6;
-  background-repeat: no-repeat;
-  background-position: center 50%;
-  background-size: cover;
-  background-image: url("/pexels-pixabay-264279.jpg");
+  
+  
 }
 
 .top-message {
   position: relative;
+  background-size: cover;
+  background-image: url("/pexels-pixabay-264279.jpg");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+  height: 700px;
 }
 
 .top-main h2 {
@@ -141,35 +145,70 @@ header {
   line-height: 1.3;
   -webkit-font-smoothing: antialiased;
   margin-bottom: 20px;
+  
 }
 
-.top-main p {
+.top-message p {
   font-size: 24px;
+  padding-top: 150px;
+
+}
+.top-main button{
+  width: 600px;
+  height: 50px;
+  
+}
+.top-sign{
+  font-size: 30px;
+  background-color: #00CCFF;
+  width: 400px;
+  border-radius: 100vh;
+  color: #fff;
+}
+.top-login{
+  font-size: 30px;
+  background-color: #00CC66;
+  width: 400px;
+  margin: 3px;
+  border-radius: 100vh;
+  color: #fff;
 }
 
-/* about ================================ */
+/* about  */
 .about-main {
-  padding: 180px 8% 0;
-  color: white;
-  background-color: black;
+  background-color: #00CCFF;
 }
 
 .about-main h2 {
   font-size: 64px;
   font-weight: 500;
-  line-height: 1.4;
+  
+  
 }
 
 .about-main p {
   font-weight: 200;
   font-size: 20px;
+  font-weight: 500;
+}
+.about-strong{
+  background-color: #00CCFF;
+  margin-top: 100px;
+  margin-bottom: 30px;
 }
 
-.about-img {
-  width: 84%;
+.about-feature{
+  background-color: #00CC66;
+  margin-top: 80px;
+  padding-bottom: 10px;
+}
+.about-detail{
+  background-color: #fff;
+  color: #00CC66;
+  margin: 10px;
 }
 
-/* フォーム================================ */
+/* form */
 .form {
   max-width: 600px;
   margin: 0 auto;
@@ -181,11 +220,12 @@ header {
   font-weight: 300;
   margin: 60px 0 20px;
   font-size: 48px;
-  color: #bcc8d4;
+  color: #fff;
 }
 
 .form-body {
   padding: 30px;
+
 }
 
 .form-error {
@@ -225,9 +265,12 @@ header {
   content: '';
   display: table;
   clear: both;
-}
 
-/* フラッシュ ================================ */
+}
+.form users-form{
+  
+}
+/* フラッシュ */
 .flash {
   padding: 10px 0;
   color: white;

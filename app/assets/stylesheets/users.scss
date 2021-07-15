@@ -1,4 +1,4 @@
-/* users/index ================================ */
+/* users/index  */
 .users-heading {
   font-weight: 300;
   margin: 60px 0 20px;
@@ -54,7 +54,7 @@ select{
 }
 
 
-/* users/show ================================ */
+/* users/show */
 .user-show {
   text-align: center;
 }
@@ -120,7 +120,7 @@ select{
   color: #afb6bf;
 }
 
-/* users/new, users/edit ================================ */
+/* users/new, users/edit */
 .users-form input {
   margin-bottom: 15px;
 }
@@ -156,4 +156,7 @@ label:hover{
 }
 .profile-control{
   margin-top: 100px;
+}
+.users-sign{
+  background-color: #00CCFF;
 }

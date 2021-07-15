@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   
 
   root "home#top"
-  get "about"=> "home#about"
   resources :users do
     member do
       get :following, :followers

@@ -1,6 +1,50 @@
 <div class="main top-main">
   <div class="top-message">
     <p>日本中のプロ野球ファンと繋がろう</p>
-    <h2>Match-App</h2>
+    <h2>球っちんぐ</h2>
+    <%= button_to "Signup", signup_path, class: "top-sign", method: :get %>
+    <br>
+    <%= button_to "Login", login_path, class: "top-login", method: :get %>
+  </div> 
+  <div class="container">
+    <div class="about-main"> 
+      <h2>球っちんぐとは</h2>
+      <img class="about-img" src="/photo-1578432014316-48b448d79d57.jpg">
+      <p>好きな球団のファンや選手同士、<br>一緒に応援できる仲間を探す<br>
+      プロ野球ファン専用のマッチングアプリです。</p>
+    </div>
+    <div class="about-strong">
+      <h3>球っちんぐでの利用で得られるもの</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>現地で一緒に行ける仲間</h3>
+        </div>
+        <div class="col-md-4">
+          <h3>野球が好きな恋人</h3>
+        </div>
+        <div class="col-md-4">
+          <h3>用事ができた時のチケットの譲り合い</h3>
+        </div>
+      </div>
+    </div>
+    <div class="about-feature">
+      <h3>球っちんぐの特徴</h3>
+      <div class="about-detail">
+        <h2>1</h2>
+        <h3>同じ球団のファン同士での交流</h3>
+        <p>検索機能を用いて気になる相手をフォロー！<br>
+          各ユーザーお気に入り球団を設定することが可能です。<br>お気に入り球団毎にユーザーを検索できるので自分が好きな球団のファンをすぐに見つけられます。</p>
+      </div>
+      <div class="about-detail">
+        <h2>2</h2>
+        <h3>投稿機能でリアルタイムで交流</h3>
+        <p>投稿機能を使用することで全てのユーザーの投稿一覧画面に反映します。<br>投稿に対して誰でも返信を送ったり、いいねをつけ、交流することができます。</p>
+      </div>
+      <div class="about-detail">
+        <h2>3</h2>
+        <h3>ダイレクトメッセージで交流</h3>
+        <p>相互フォローすることでダイレクトメッセージ機能を使えます。<br>投稿機能とは違い、二人だけでの会話なのでより深く交流できます。</p>
+      </div>
+    </div>
   </div>
 </div>
