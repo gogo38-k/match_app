@@ -33,7 +33,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'devise'
 # Force all access to the app over SSL, use Strict-Transport-Security,
   # and use secure cookies.
-
+gem 'meta-tags'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.4.1'
