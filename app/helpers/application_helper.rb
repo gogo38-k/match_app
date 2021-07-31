@@ -6,7 +6,7 @@ module ApplicationHelper
       reverse: true,
       charset: 'utf-8',
       description: '好きな球団のファンや選手同士、一緒に応援できる仲間を探すプロ野球ファン専用のマッチングアプリです。',
-      keywords: 'プロ野球',
+      keywords: 'プロ野球,出会い,マッチングアプリ',
       canonical: request.original_url,
       separator: '|',
       icon: [
